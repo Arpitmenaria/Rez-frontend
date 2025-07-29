@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL + '/api',
+  baseURL: 'https://rez-backend.onrender.com/api', // ✅ Use your Render backend URL
 });
 
 export default API;
