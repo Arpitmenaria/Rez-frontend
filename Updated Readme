@@ -1,0 +1,21 @@
+# Frontend - MERN Stack User Wallet App
+This is the **React.js frontend** for the User Wallet Registration and Login system. It allows users to register or log in using their name and phone number, and then interact with a simple Wallet interface.
+
+# Features
+- User Registration & Login (via phone)
+- Conditional UI rendering with Wallet component
+- Axios API integration with backend
+- React Hooks (`useState`, `useEffect`)
+- Responsive and clean UI
+
+# Technologies Used
+- React.js (with Vite)
+- Axios
+- JavaScript (ES6)
+- CSS
+
+# Setup Instructions
+1. Navigate to the frontend directory:
+
+```bash
+cd client
