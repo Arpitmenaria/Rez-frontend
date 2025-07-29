@@ -1,4 +1,5 @@
 // client/src/Pages/RegisterUser.jsx
+
 import React, { useState } from 'react';
 import API from '../utils/api';
 import Wallet from './Wallet';
@@ -11,23 +12,28 @@ const RegisterUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!phone) return alert("Phone number is required");
 
     setLoading(true);
+
     try {
-      // Try to find existing user
+      // Try to fetch the user by phone number
       const res = await API.get(`/users/${phone}`);
-      setUser(res.data);
+      if (res.data) {
+        setUser(res.data);
+      }
     } catch (err) {
-      // If user not found, register new one
+      // If user not found, register a new user
       try {
         const res = await API.post(`/users/register`, { name, phone });
-        setUser(res.data.user);
+        setUser(res.data.user); // Ensure backend sends wallet inside user object
       } catch (error) {
         console.error(error);
         alert('Error registering user.');
       }
     }
+
     setLoading(false);
   };
 

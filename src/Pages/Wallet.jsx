@@ -1,7 +1,17 @@
-// client/src/Pages/Wallet.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Wallet = ({ user }) => {
+const Wallet = ({ user: propUser }) => {
+  const [user, setUser] = useState(propUser || null);
+
+  useEffect(() => {
+    if (!propUser) {
+      const storedUser = localStorage.getItem('rezUser');
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    }
+  }, [propUser]);
+
   if (!user) return <p>User not loaded.</p>;
 
   return (
